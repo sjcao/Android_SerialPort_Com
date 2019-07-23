@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:id="@+id/tv_endpoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="串口端点："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_endpoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_endpoint"
+        app:layout_constraintEnd_toStartOf="@+id/bt_open"
+        app:layout_constraintLeft_toRightOf="@id/tv_endpoint"
+        app:layout_constraintStart_toEndOf="@+id/tv_endpoint"
+        app:layout_constraintTop_toTopOf="@+id/tv_endpoint" />
+
+
+    <TextView
+        android:id="@+id/tv_bandRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="波特率："
+        app:layout_constraintStart_toStartOf="@+id/tv_endpoint"
+        app:layout_constraintTop_toBottomOf="@+id/tv_endpoint" />
+
+    <Spinner
+        android:id="@+id/spinner_bandRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_bandRate"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_endpoint"
+        app:layout_constraintStart_toEndOf="@+id/tv_bandRate"
+        app:layout_constraintTop_toTopOf="@+id/tv_bandRate" />
+
+    <TextView
+        android:id="@+id/tv_dataBits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="停止位："
+        app:layout_constraintEnd_toEndOf="@+id/tv_endpoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_endpoint"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bandRate" />
+
+    <Spinner
+        android:id="@+id/spinner_dataBits"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_dataBits"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_endpoint"
+        app:layout_constraintStart_toStartOf="@+id/spinner_bandRate"
+        app:layout_constraintTop_toTopOf="@+id/tv_dataBits" />
+
+    <TextView
+        android:id="@+id/tv_parity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="校验位："
+        app:layout_constraintEnd_toEndOf="@+id/tv_endpoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_endpoint"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dataBits" />
+
+    <Spinner
+        android:id="@+id/spinner_parity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_parity"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_endpoint"
+        app:layout_constraintStart_toStartOf="@+id/spinner_bandRate"
+        app:layout_constraintTop_toTopOf="@+id/tv_parity" />
+
+    <TextView
+        android:id="@+id/tv_stopBit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="停止位："
+        app:layout_constraintEnd_toEndOf="@+id/tv_endpoint"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_endpoint"
+        app:layout_constraintTop_toBottomOf="@+id/tv_parity" />
+
+    <Spinner
+        android:id="@+id/spinner_stopBit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_stopBit"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_endpoint"
+        app:layout_constraintStart_toStartOf="@+id/spinner_bandRate"
+        app:layout_constraintTop_toTopOf="@+id/tv_stopBit" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_stopBit" />
+
+    <TextView
+        android:id="@+id/tv_send_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="发送"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <CheckedTextView
+        android:id="@+id/ctv_send_ascii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:checked="false"
+        android:gravity="center"
+        android:text="ASCII"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_send_format"
+        app:layout_constraintStart_toEndOf="@+id/tv_send_format"
+        app:layout_constraintTop_toTopOf="@+id/tv_send_format" />
+
+    <CheckedTextView
+        android:id="@+id/ctv_send_hex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:checked="true"
+        android:gravity="center"
+        android:text="Hex"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_send_format"
+        app:layout_constraintStart_toEndOf="@+id/ctv_send_ascii"
+        app:layout_constraintTop_toTopOf="@+id/tv_send_format" />
+
+    <TextView
+        android:id="@+id/tv_receive_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="接收"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_send_format"
+        app:layout_constraintEnd_toStartOf="@+id/ctv_receive_ascii"
+        app:layout_constraintTop_toTopOf="@+id/tv_send_format" />
+
+    <CheckedTextView
+        android:id="@+id/ctv_receive_ascii"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:gravity="center"
+        android:text="ASCII"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_receive_format"
+        app:layout_constraintEnd_toStartOf="@+id/ctv_receive_hex"
+        app:layout_constraintTop_toTopOf="@+id/tv_receive_format" />
+
+    <CheckedTextView
+        android:id="@+id/ctv_receive_hex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:checkMark="?android:attr/listChoiceIndicatorSingle"
+        android:checked="true"
+        android:gravity="center"
+        android:text="Hex"
+        app:layout_constraintBottom_toBottomOf="@+id/ctv_receive_ascii"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ctv_receive_ascii" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/ctv_send_hex" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcy_log"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_send"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <EditText
+        android:id="@+id/edt_send"
+        android:inputType="text"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_send"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="发送"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_send"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edt_send" />
+
+    <Button
+        android:id="@+id/bt_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="打开"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinner_endpoint" />
+
+    <Button
+        android:id="@+id/bt_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="清空"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_stopBit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_open" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintEnd_toStartOf="@+id/tv_receive_format"
+        app:layout_constraintStart_toEndOf="@+id/ctv_send_hex"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+</androidx.constraintlayout.widget.ConstraintLayout>
